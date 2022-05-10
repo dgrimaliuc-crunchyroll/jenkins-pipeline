@@ -64,27 +64,4 @@ try {
     currentBuild.result = "FAILED"
     throw e
 } finally {
-    // Success or failure, always send notifications
-    if (env.SLACK_CHANNELS) {
-        def color = "good"
-        def status = "passed"
-
-        if (currentBuild.result == "UNSTABLE") {
-            color = "danger"
-            status = "warning"
-        }
-
-        if (currentBuild.result == "FAILURE") {
-            color = "danger"
-            status = "failed"
-        }
-
-        SLACK_CHANNELS.split(",").each { channel ->
-            def slackChannel = channel.trim()
-
-            if (slackChannel) {
-                slackSend(channel: slackChannel, color: color, message: "*Job:* <${currentBuild.absoluteUrl}#${currentBuild.number}|${currentBuild.projectName}>\n*Status:* ${status}\n*Description:* \n```\n${(currentBuild.description ?: "No description").replaceAll("<([^>]+)>", "").trim()}\n```")
-            }
-        }
-    }
 }
