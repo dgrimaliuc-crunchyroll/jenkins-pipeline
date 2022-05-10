@@ -1,0 +1,278 @@
+{
+  "_class": "hudson.model.FreeStyleBuild",
+  "actions": [
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UpstreamCause",
+          "shortDescription": "Started by upstream project \"vod-pipeline-staging\" build number 428",
+          "upstreamBuild": 428,
+          "upstreamProject": "vod-pipeline-staging",
+          "upstreamUrl": "job/vod-pipeline-staging/"
+        }
+      ]
+    },
+    {
+      "_class": "hudson.model.ParametersAction",
+      "parameters": [
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "BUILDBRANCH",
+          "value": "master"
+        }
+      ]
+    },
+    {},
+    {},
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "origin/master": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 592,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "997fb08b9327d1de2117eac1c8ccbe47bcb6127c",
+            "branch": [
+              {
+                "SHA1": "997fb08b9327d1de2117eac1c8ccbe47bcb6127c",
+                "name": "origin/master"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "997fb08b9327d1de2117eac1c8ccbe47bcb6127c",
+            "branch": [
+              {
+                "SHA1": "997fb08b9327d1de2117eac1c8ccbe47bcb6127c",
+                "name": "origin/master"
+              }
+            ]
+          }
+        },
+        "origin/VOD-2289": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 121,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "f7662bf44521d5bfed4c6ea854c2566d239f2173",
+            "branch": [
+              {
+                "SHA1": "f7662bf44521d5bfed4c6ea854c2566d239f2173",
+                "name": "origin/VOD-2289"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "f7662bf44521d5bfed4c6ea854c2566d239f2173",
+            "branch": [
+              {
+                "SHA1": "f7662bf44521d5bfed4c6ea854c2566d239f2173",
+                "name": "origin/VOD-2289"
+              }
+            ]
+          }
+        },
+        "origin/proto": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 566,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "9911a5c52f159574338aa3a70599116ee698aa4a",
+            "branch": [
+              {
+                "SHA1": "9911a5c52f159574338aa3a70599116ee698aa4a",
+                "name": "origin/proto"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "9911a5c52f159574338aa3a70599116ee698aa4a",
+            "branch": [
+              {
+                "SHA1": "9911a5c52f159574338aa3a70599116ee698aa4a",
+                "name": "origin/proto"
+              }
+            ]
+          }
+        },
+        "refs/remotes/origin/master": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 92,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "46f6f666b182a426fdd19cd2249d5bbfea9bfc91",
+            "branch": [
+              {
+                "SHA1": "46f6f666b182a426fdd19cd2249d5bbfea9bfc91",
+                "name": "refs/remotes/origin/master"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "46f6f666b182a426fdd19cd2249d5bbfea9bfc91",
+            "branch": [
+              {
+                "SHA1": "46f6f666b182a426fdd19cd2249d5bbfea9bfc91",
+                "name": "refs/remotes/origin/master"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "997fb08b9327d1de2117eac1c8ccbe47bcb6127c",
+        "branch": [
+          {
+            "SHA1": "997fb08b9327d1de2117eac1c8ccbe47bcb6127c",
+            "name": "origin/master"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "https://github.com/crunchyroll/evs-s3helper.git"
+      ],
+      "scmName": ""
+    },
+    {
+      "_class": "hudson.plugins.git.GitTagAction"
+    },
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "origin/master": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 592,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "60c70d45c79eb36ea2624b13abd8374e299fafc8",
+            "branch": [
+              {
+                "SHA1": "60c70d45c79eb36ea2624b13abd8374e299fafc8",
+                "name": "origin/master"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "60c70d45c79eb36ea2624b13abd8374e299fafc8",
+            "branch": [
+              {
+                "SHA1": "60c70d45c79eb36ea2624b13abd8374e299fafc8",
+                "name": "origin/master"
+              }
+            ]
+          }
+        },
+        "origin/proto": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 566,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "480aba3fccd2ec8b95a984d5bbe102920fb3771c",
+            "branch": [
+              {
+                "SHA1": "480aba3fccd2ec8b95a984d5bbe102920fb3771c",
+                "name": "origin/proto"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "480aba3fccd2ec8b95a984d5bbe102920fb3771c",
+            "branch": [
+              {
+                "SHA1": "480aba3fccd2ec8b95a984d5bbe102920fb3771c",
+                "name": "origin/proto"
+              }
+            ]
+          }
+        },
+        "origin/VOD-2541": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 206,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "0f48a8e7186258248ec1db7129c9aa075981dcc1",
+            "branch": [
+              {
+                "SHA1": "0f48a8e7186258248ec1db7129c9aa075981dcc1",
+                "name": "origin/VOD-2541"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "0f48a8e7186258248ec1db7129c9aa075981dcc1",
+            "branch": [
+              {
+                "SHA1": "0f48a8e7186258248ec1db7129c9aa075981dcc1",
+                "name": "origin/VOD-2541"
+              }
+            ]
+          }
+        },
+        "refs/remotes/origin/master": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 73,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "f3c1dc3e26ddd32c04531f3dccfb2c060636bc3a",
+            "branch": [
+              {
+                "SHA1": "f3c1dc3e26ddd32c04531f3dccfb2c060636bc3a",
+                "name": "refs/remotes/origin/master"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "f3c1dc3e26ddd32c04531f3dccfb2c060636bc3a",
+            "branch": [
+              {
+                "SHA1": "f3c1dc3e26ddd32c04531f3dccfb2c060636bc3a",
+                "name": "refs/remotes/origin/master"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "60c70d45c79eb36ea2624b13abd8374e299fafc8",
+        "branch": [
+          {
+            "SHA1": "60c70d45c79eb36ea2624b13abd8374e299fafc8",
+            "name": "origin/master"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "https://github.com/crunchyroll/evs-nginx-vod.git"
+      ],
+      "scmName": ""
+    },
+    {},
+    {},
+    {},
+    {}
+  ],
+  "artifacts": [],
+  "building": false,
+  "description": null,
+  "displayName": "#592",
+  "duration": 286295,
+  "estimatedDuration": 315195,
+  "executor": null,
+  "fullDisplayName": "vod-build #592",
+  "id": "592",
+  "keepLog": false,
+  "number": 592,
+  "queueId": 29777,
+  "result": "SUCCESS",
+  "timestamp": 1565921372718,
+  "url": "https://jenkins-build.ellationeng.cx-mgmt.com/job/vod-build/592/",
+  "builtOn": "jenkins-slave-c4xl-1",
+  "changeSet": {
+    "_class": "org.jenkinsci.plugins.multiplescms.MultiSCMChangeLogSet",
+    "items": [],
+    "kind": "git"
+  },
+  "culprits": []
+}

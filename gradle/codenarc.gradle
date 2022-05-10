@@ -1,0 +1,15 @@
+apply plugin: 'codenarc'
+
+dependencies {
+    codenarc group: 'org.codenarc', name: 'CodeNarc', version: "1.2.1"
+}
+
+codenarc {
+    ignoreFailures = false
+    configFile = file('config/codenarc/rules.groovy')
+    reportFormat = 'console'
+}
+
+task codenarcAllSources(dependsOn: ['codenarcMain', 'codenarcTest', 'codenarcIntegrationTest'])
+codenarcTest.mustRunAfter codenarcMain
+codenarcIntegrationTest.mustRunAfter codenarcTest

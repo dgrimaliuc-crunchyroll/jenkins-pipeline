@@ -1,0 +1,61 @@
+h2. Here is what will go out as part of this deploy
+
+<%
+def showHeader = releaseNotes.size() > 1
+
+releaseNotes.each { repoKey , notes ->
+    if (showHeader) {
+        out.println "h3. $repoKey"
+        out.println "\\\\"
+    }
+    out.println notes
+}
+%>
+----
+
+h2. Here is what we have in production:
+|| Component || Commit Hash ||
+<% production.each { out.println "| ${it.name} | ${it.value} |"  } %>
+
+<% if (staging){ %>h2. Here is what we are pushing from staging:
+\\\\
+|| Component || Commit Hash ||
+<% staging.each { out.println "| ${it.name} | ${it.value} |"  } %>
+<% }  %>
+----
+
+<% if ( haveDeployNotes) { %>
+h2. Deploy Instructions
+\\\\
+
+|| Stage || Repo || Sha || Instructions ||
+<%
+deployNotes.each { repoKey, commits ->
+    commits.each  { it ->
+        if(it.preDeploy) {
+            out.println "| Pre-Deploy  | ${repoKey} | ${it.commitId} | ${it.preDeploy} |"
+        }
+         if(it.postDeploy) {
+            out.println "| Post-Deploy | ${repoKey} | ${it.commitId} | ${it.postDeploy} |"
+        }
+    }
+}
+%>
+<% } %>
+
+h2. Here is how we will rollback if need to:
+\\\\
+If we need to rollback, re-run the PROD PIPELINE w/ the corresponding hash we want to rollback to (we essentially specifying last stable production hash **).
+
+This component does not have any AMI associated with the build / deploy. This is strictly static assets synced up to an S3 bucket.
+\\\\
+
+<% if (links) { %>
+h2. Here are some relevant links:
+\\\\
+<% links.each { out.println "${it.name} : ${it.link} "  } %>
+<% }  %>
+h2. Useful documentation:
+- [ETP Deployment Automation|https://wiki.tenkasu.net/display/ETP/Deployment+Automation]
+- [Rollback Process|https://wiki.tenkasu.net/pages/viewpage.action?pageId=497451044]
+- [Ellation Git Conventions|https://wiki.tenkasu.net/display/EN/Git+Commit+Message+Conventions]

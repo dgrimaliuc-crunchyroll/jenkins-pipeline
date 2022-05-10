@@ -1,0 +1,127 @@
+<h2><u>SCM</u></h2>
+<dl>
+    <dt>BRANCH</dt>
+	<dd>Git branch that will be checkout</dd>
+
+	<dt>REPOSITORY</dt>
+	<dd>Git repository that contains automation suite</dd>
+
+	<dt>GIT_CREDENTIALS</dt>
+	<dd>Jenkins credentials id that contains information needed for performing the checkout</dd>
+</dl>
+
+<br>
+
+<h2><u>Jenkins</u></h2>
+<dl>
+	<dt>SLAVE</dt>
+	<dd>Jenkins slave on which tests will be executed</dd>
+
+	<dt>TIMEOUT</dt>
+    <dd>Limit how many minutes the job can runs</dd>
+
+	<dt>AWS_CREDENTIAL_ID</dt>
+	<dd>Jenkins credentials id for AWS</dd>
+
+	<dt>BROWSERSTACK_CREDENTIAL_ID</dt>
+	<dd>Jenkins credentials id for BrowserStack</dd>
+
+	<dt>LAMBDATEST_CREDENTIAL_ID</dt>
+	<dd>Jenkins credentials id for LambdaTest</dd>
+
+	<dt>ARCHIVE_PERFORMANCE_RESULTS</dt>
+    <dd>Archive_performance_results</dd>
+</dl>
+
+<br>
+
+<h2><u>General</u></h2>
+<dl>
+	<dt>MODULE</dt>
+	<dd>-Dpl=${value}: Maven module that should be executed</dd>
+
+	<dt>PROFILE</dt>
+	<dd>-P ${value}: Maven profile/profiles that should be activated</dd>
+
+	<dt>ENVIRONMENT</dt>
+	<dd>-Denvironment=${value}: Testing Environment</dd>
+
+	<dt>TAGS</dt>
+	<dd>-Dtags=${value}: Tests with which tags should be executed</dd>
+
+	<dt>RETRY_COUNT</dt>
+	<dd>-DretryCount=${value}: How many times test can be retried</dd>
+
+	<dt>PARALLEL_COUNT</dt>
+	<dd>-DparallelCount=${value}: Number of thread/forks to be used</dd>
+
+	<dt>HEALTH_CHECK</dt>
+	<dd>A list of comma-separated host that should be available before executing automation, Note: _health endpoint will be checked</dd>
+
+	<dt>CLOUD</dt>
+	<dd>-Dcloud=${value}: Parameter that can be used to indicate which cloud provider should be used, or as a boolean parameter</dd>
+
+	<dt>OS</dt>
+	<dd>-Dos=${value}: Indicates which operating system the automation will be running</dd>
+
+	<dt>OS_VERSION</dt>
+	<dd>-DosVersion=${value}: Indicates version of OS that will be used</dd>
+
+	<dt>DEVICE</dt>
+	<dd>-Ddevice=${value}: Indicates which devices automation will be running</dd>
+
+	<dt>BROWSER</dt>
+	<dd>-Dbrowser=${value}: Indicates which browser will be used</dd>
+
+	<dt>BROWSER_VERSION</dt>
+	<dd>-Dbrowser=${value}: Indicates version of BROWSER that will be used</dd>
+
+	<dt>RESOLUTION</dt>
+	<dd>-Dresolution=${value}: Indicates browser resolution that should be used</dd>
+
+	<dt>RUN_ONLY_CHANGED_TESTS_FROM</dt>
+	<dd>-DrunOnlyModifiedTestsFrom=${value}: Parameter used by 'junit5-git-execution-condition' for identifying affected tests that should be executed, ex: origin/master (will execute tests that appeared or has been changed in comparison with master branch)</dd>
+
+	<dt>ADDITIONAL_ARGS</dt>
+	<dd>Additional command-line arguments that will be passed to any maven command</dd>
+</dl>
+
+<br>
+
+<h2><u>Jira</u></h2>
+<dl>
+	<dt>JIRA_CREDENTIAL_ID</dt>
+	<dd>Jenkins credentials id for Jira</dd>
+
+	<dt>JIRA_HOST</dt>
+	<dd>Jira host, Default: https://ellation.atlassian.net</dd>
+</dl>
+
+<br>
+
+<h2><u>TestRail</u></h2>
+<dl>
+    <dt>TESTRAIL_CREDENTIAL_ID</dt>
+	<dd>Jenkins credentials id for TestRail</dd>
+
+	<dt>DISABLE_TESTRAIL_PUBLISH</dt>
+	<dd>Disable TestRail integration</dd>
+
+	<dt>TESTRAIL_HOST</dt>
+	<dd>-DTestRail.host=${value}: TestRail host, Default: https://ellation.testrail.net</dd>
+
+	<dt>TESTRAIL_RUN_NAME</dt>
+	<dd>-DTestRail.name=${value}: Run name</dd>
+
+	<dt>TESTRAIL_PROJECT</dt>
+	<dd>-DTestRail.project=${value}: Project ID or Name (case insensitive)</dd>
+
+	<dt>TESTRAIL_SUITE</dt>
+	<dd>-DTestRail.suite=${value}: Suite ID or Name (case insensitive)</dd>
+
+	<dt>TESTRAIL_PLAN</dt>
+	<dd>-DTestRail.plan={value}: Plan ID or Name (case insensitive)</dd>
+
+	<dt>TESTRAIL_RUN</dt>
+	<dd>-DTestRail.name=${value}: Run ID or Name (case insensitive)</dd>
+</dl>

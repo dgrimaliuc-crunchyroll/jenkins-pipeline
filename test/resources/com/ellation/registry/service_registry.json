@@ -1,0 +1,160 @@
+{
+  "fixtures": {
+    "sample-fixture": {
+      "type": "aws_fixture",
+      "description": "This is a sample fixture used in tests",
+      "team_email": "unittest@ellation.test",
+      "environments": ["global.ellation", "global.ellationeng", "global.ellationint", "global.codemobs"]
+    }
+  },
+  "platform_services": {
+    "platform-service-build": {
+      "type": "http_service",
+      "description": "devops platform-service",
+      "runbook_url": "https://wiki.tenkasu.net/",
+      "jira_project": "OPS",
+      "chef_role": "platform-service-build",
+      "vagrant_settings": {
+        "memory": "2048"
+      },
+      "team_email": "ops@ellation.com",
+      "environments": ["tst.ellationeng"],
+      "policies": ["global_buckets_ro", "instance_introspection", "platform-service_build"],
+      "aws_managed_policies": ["CloudWatchAgentServerPolicy"]
+    },
+    "platform-service.slave": {
+      "type": "aws_ec2",
+      "description": "platform-service slave",
+      "runbook_url": "https://wiki.tenkasu.net/",
+      "jira_project": "OPS",
+      "chef_role": "platform-service-slave",
+      "team_email": "ops@ellation.com",
+      "environments": ["tst.ellationeng"],
+      "policies": ["global_buckets_ro", "instance_introspection", "platform-service_build"],
+      "aws_managed_policies": ["CloudWatchAgentServerPolicy"]
+    }
+  },
+  "application_services": {
+
+    "single-service": {
+      "type": "http_service",
+      "description": "This simulates a service without any subservice",
+      "repository": "github.com/crunchyroll/single-service",
+      "runbook_url": "https://wiki.tenkasu.net/wiki/spaces/DEVOPS/pages/18120726/Core+Runbook",
+      "jira_project": "CXAPI",
+      "chef_role": "core",
+      "team_email": "core@ellation.com",
+      "environments": ["prod", "staging", "proto", "alpha"],
+      "policies": ["global_buckets_ro", "instance_introspection"],
+      "aws_managed_policies": ["CloudWatchAgentServerPolicy"]
+    },
+    "multiple-app-service": {
+      "type": "http_service",
+      "description": "Ellation Cloud Encoder - manages ece transcoders and provides a REST endpoint",
+      "repository":  "github.com/crunchyroll/multiple-app-service-1",
+      "other_repositories": [
+           "github.com/crunchyroll/multiple-app-service-2",
+           "github.com/crunchyroll/multiple-app-service-3"
+      ],
+      "runbook_url": "https://wiki.tenkasu.net/wiki/spaces/DEVOPS/pages/47906861/ECE+Runbook",
+      "jira_project": "VOD",
+      "chef_role": "ece",
+      "team_email": "elvis@ellation.com",
+      "environments": ["prod", "staging", "proto", "alpha"],
+      "policies": ["global_buckets_ro", "instance_introspection"],
+      "aws_managed_policies": ["CloudWatchAgentServerPolicy"]
+    },
+
+    "ece-node": {
+      "type": "http_service",
+      "description": "Ellation Cloud Encoder - encodes mezzanines for playback as video",
+      "repository": "github.com/crunchyroll/evs-transcode-node",
+      "runbook_url": "https://wiki.tenkasu.net/wiki/spaces/DEVOPS/pages/47906861/ECE+Runbook",
+      "jira_project": "VOD",
+      "chef_role": "ece-node",
+      "team_email": "elvis@ellation.com",
+      "environments": ["prod", "staging", "proto", "alpha"],
+      "policies": ["global_buckets_ro", "instance_introspection"],
+      "alerts": {
+        "cpu_percent": {
+          "enabled": false
+        },
+        "disk_used": {
+          "critical_threshold": {
+            "value": 98
+          }
+        }
+      },
+      "aws_managed_policies": ["CloudWatchAgentServerPolicy"]
+    },
+    "test-instance": {
+      "type": "http_service",
+      "description": "test ec2 instance",
+      "runbook_url": "TBD",
+      "repository": "github.com/crunchyroll/ellation_formation",
+      "jira_project": "OPS",
+      "chef_role": "test-instance",
+      "team_email": "ops@ellation.com",
+      "environments": ["prod", "staging", "proto", "internal", "alpha", "tst.ellationeng"],
+      "policies": ["global_buckets_ro", "instance_introspection"],
+      "aws_managed_policies": ["CloudWatchAgentServerPolicy"]
+    },
+  "test-instance.subservice": {
+      "type": "aws_ec2",
+      "description": "test ec2 instance",
+      "runbook_url": "TBD",
+      "jira_project": "OPS",
+      "chef_role": "test-instance",
+      "team_email": "ops@ellation.com",
+      "environments": ["prod", "staging", "proto", "internal", "alpha", "tst.ellationeng"],
+      "policies": ["global_buckets_ro", "instance_introspection"],
+      "aws_managed_policies": ["CloudWatchAgentServerPolicy"]
+    },
+    "test-instance2.subservice": {
+      "type": "aws_ec2",
+      "description": "This subservice like service exists to make sure regex works as expected",
+      "runbook_url": "TBD",
+      "jira_project": "OPS",
+      "chef_role": "test-instance",
+      "team_email": "ops@ellation.com",
+      "environments": ["prod", "staging", "proto", "internal", "alpha", "tst.ellationeng"],
+      "policies": ["global_buckets_ro", "instance_introspection"],
+      "aws_managed_policies": ["CloudWatchAgentServerPolicy"]
+    },
+
+    "dist-hash-service": {
+      "type": "dist_static",
+      "description": "This is a dist-hash-service",
+      "runbook_url": "https://wiki.tenkasu.net/wiki/spaces/DEVOPS/pages/49021212/Dist+Hash+Runbook",
+      "jira_project": "DIST",
+      "team_email": "dist-hash-service@ellation.com",
+      "environments": ["prod", "staging", "proto", "alpha"]
+    }
+  },
+  "internal_services": {
+    "it-snipeit": {
+      "type": "http_service",
+      "description": "IT hardware Inventory System",
+      "repository": "github.com/crunchyroll/it-snipeit",
+      "runbook_url": "https://wiki.tenkasu.net/wiki/spaces/IT/pages/508988557/Snipe-IT",
+      "jira_project": "ITP",
+      "chef_role": "it-snipeit",
+      "team_email": "it@ellation.com",
+      "environments": ["internal", "alpha"],
+      "policies": ["global_buckets_ro", "instance_introspection"],
+      "aws_managed_policies": ["CloudWatchAgentServerPolicy"]
+    },
+    "porco-rosso": {
+      "type": "http_service",
+      "description": "Porco Rosso product design documentation service",
+      "repository": "https://github.com/crunchyroll/porco-rosso",
+      "runbook_url": "https://wiki.tenkasu.net/wiki/spaces/ETP/pages/528253015/PorcoRosso+Runbook",
+      "jira_project": "CGM",
+      "chef_role": "porco-rosso",
+      "team_email": "jshim@ellation.com",
+      "environments": ["proto", "alpha"],
+      "policies": ["global_buckets_ro", "instance_introspection"],
+      "aws_managed_policies": ["CloudWatchAgentServerPolicy"]
+    }
+  }
+}

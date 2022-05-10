@@ -1,0 +1,18 @@
+|| SHA || Summary || Issue ID ||
+<%
+def invalidCommit = false
+commits.each {
+    if (it.ticket == "N/A") {
+        invalidCommit = true
+    }
+    out.println "| ${it.commitId} | ${it.msg} | ${it.ticket} |"
+}
+if (invalidCommit) {
+    out.println "\\\\ Not all commits had a ticket properly associated with them. Follow the links in the documentation section to read more about Ellation git conventions."
+}
+%>
+
+<% releaseNotes.each { library, releaseNote ->
+    out.println "h4. ${library} library release notes"
+    out.println "${releaseNote}"
+ } %>

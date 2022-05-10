@@ -1,0 +1,32 @@
+{
+    "variables": {
+        "region": "",
+        "source_ami": "",
+        "vpc_id": "",
+        "subnet_id": "",
+        "chef_role": ""
+    },
+    "builders": [{
+        "type": "amazon-ebs",
+        "ami_name": "base_{{timestamp}}",
+        "instance_type": "t2.medium",
+        "region": "{{user `region`}}",
+        "source_ami": "{{user `source_ami`}}",
+        "vpc_id": "{{user `vpc_id`}}",
+        "subnet_id": "{{user `subnet_id`}}",
+        "associate_public_ip_address": "true",
+        "ena_support": "true",
+        "ssh_pty": "true",
+        "ssh_username": "centos",
+        "tags": {
+            "Name":  "base"
+        }
+    }],
+    "provisioners": [{
+        "type": "chef-solo",
+        "cookbook_paths": ["./vendor/cookbooks"],
+        "roles_path": "./chef/roles",
+        "run_list": ["role[{{user `chef_role`}}]"],
+        "install_command": "curl -L https://omnitruck.chef.io/install.sh | {{if .Sudo}}sudo{{end}} bash -s -- -v 13.11.3"
+    }]
+}

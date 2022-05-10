@@ -1,0 +1,12 @@
+752e2815963267f221e416836b1395edd1ca7d08
+Bumps to 0.1.0
+
+Reviewer: None
+JIRA: TC-136
+GH: None
+LibraryNotes: https://github.com/crunchyroll/test-instance/releases/tag/0.1.0
+
+text before library
+text before link https://github.com/crunchyroll/test-instance/releases/tag/0.1.0 text after link
+text after library
+this tag will be ignored https://github.com/noncrunchyroll/test-instance/releases/tag/0.1.0

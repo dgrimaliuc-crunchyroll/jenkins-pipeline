@@ -1,0 +1,51 @@
+{
+    "variables": {
+        "region": "",
+        "vpc_id": "",
+        "subnet_id": "",
+        "source_ami": "",
+        "service_name": "",
+        "service_dir_name": "",
+        "ami_name": "",
+        "packer_release_path": ""
+    },
+    "builders": [{
+        "type": "amazon-ebs",
+        "region": "{{user `region`}}",
+        "vpc_id": "{{user `vpc_id`}}",
+        "subnet_id": "{{user `subnet_id`}}",
+        "source_ami": "{{user `source_ami`}}",
+        "instance_type": "t2.medium",
+        "ami_name": "{{user `ami_name`}}_{{timestamp}}",
+        "tags": {
+            "Name":  "{{user `service_name`}}"
+        },
+        "ssh_username": "centos",
+        "ssh_pty": "true",
+        "associate_public_ip_address": "true",
+        "ena_support": "true"
+    }],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sudo mkdir -p /tmp/packer-release",
+                "sudo chmod 777 /tmp/packer-release"
+            ]
+        },
+        {
+            "type": "file",
+            "source": "{{user `packer_release_path`}}",
+            "destination": "/tmp/packer-release/"
+        },
+        {
+           "type": "shell",
+           "inline": [
+               "sudo mkdir -p /srv/{{user `service_dir_name`}}",
+               "sudo ls /tmp/packer-release/*.tar.gz | xargs -I {} sudo tar -xzvf {} -C /srv/{{user `service_dir_name`}}/",
+               "sudo chown -R 8836:8836  /srv/{{user `service_dir_name`}}",
+               "sudo rm -rf /tmp/packer-release"
+            ]
+        }
+    ]
+}
